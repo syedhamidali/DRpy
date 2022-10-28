@@ -21,3 +21,9 @@ Motivation
 GPM-DPR has collected a treasure trove of atmospheric precipitation measurements that can be cumbersome to deal with. As a means to 
 accelerate the use of GPM-DPR data in the community and to give me practice with creating high-quality open-source code, 
 I have created ``DRpy``.
+
+********
+Citation
+********
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7259561.svg)](https://doi.org/10.5281/zenodo.7259561)
