@@ -1,101 +1,350 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Advanced Plotting &mdash; DRpy 0.0.1 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Advanced Plotting &#8212; DRpy</title>
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-    <script src="_static/js/theme.js"></script>
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'advanced_plotting';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Getting Started" href="getting_started.html" /> 
-</head>
+    <link rel="next" title="Example Gallery" href="example_gallery.html" />
+    <link rel="prev" title="Getting Started" href="getting_started.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> DRpy
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Advanced Plotting</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#moving-the-cross-section">Moving the Cross-section</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#scan-adjustment-cross-track-index-choice">Scan Adjustment (Cross-Track Index Choice)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#length-adjustment-along-track-index-choice">Length Adjustment (Along Track Index Choice)</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#cross-track-view">Cross-Track View</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#adjusting-the-cross-section">Adjusting the Cross-section</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#y-limit">Y limit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#color-limit">Color limit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#different-variables">Different Variables</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#an-alternate-snowfall-retrieval">An Alternate Snowfall Retrieval</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#background">Background</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#running-chase-et-al-2021">Running Chase et al. (2021)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
 
-        </div>
-      </div>
-    </nav>
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">DRpy</p>
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="installation.html">
+                        Installation
+                      </a>
+                    </li>
+                
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">DRpy</a>
-      </nav>
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="getting_started.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Advanced Plotting</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="_sources/advanced_plotting.rst.txt" rel="nofollow"> View page source</a>
-      </li>
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Advanced Plotting
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="example_gallery.html">
+                        Example Gallery
+                      </a>
+                    </li>
+                
   </ul>
-  <hr/>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="installation.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="getting_started.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Advanced Plotting
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="example_gallery.html">
+                        Example Gallery
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Advanced Plotting</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section id="advanced-plotting">
-<h1>Advanced Plotting<a class="headerlink" href="#advanced-plotting" title="Permalink to this headline"></a></h1>
+<h1>Advanced Plotting<a class="headerlink" href="#advanced-plotting" title="Permalink to this heading">#</a></h1>
 <p>Now that you have the basics of the <code class="docutils literal notranslate"><span class="pre">DRpy</span></code> [if you are not, please see <code class="docutils literal notranslate"><span class="pre">Getting</span> <span class="pre">Started</span></code> on the left panel],
 this page will guide you through using some of the advanced features of the <code class="docutils literal notranslate"><span class="pre">drpy.graph.case_study</span></code> method.
 A lot of these methods will be ‘trial and error’, meaning try a new input to change how the plot looks, and see
 if you like the change.</p>
 <section id="moving-the-cross-section">
-<h2>Moving the Cross-section<a class="headerlink" href="#moving-the-cross-section" title="Permalink to this headline"></a></h2>
+<h2>Moving the Cross-section<a class="headerlink" href="#moving-the-cross-section" title="Permalink to this heading">#</a></h2>
 <section id="scan-adjustment-cross-track-index-choice">
-<h3>Scan Adjustment (Cross-Track Index Choice)<a class="headerlink" href="#scan-adjustment-cross-track-index-choice" title="Permalink to this headline"></a></h3>
+<h3>Scan Adjustment (Cross-Track Index Choice)<a class="headerlink" href="#scan-adjustment-cross-track-index-choice" title="Permalink to this heading">#</a></h3>
 <a class="reference internal image-reference" href="_images/DRpy_case_example.png"><img alt="_images/DRpy_case_example.png" class="align-center" src="_images/DRpy_case_example.png" style="width: 600px;" /></a>
 <p>By default,  <code class="docutils literal notranslate"><span class="pre">drpy.graph.case_study</span></code> will show you the <cite>nadir</cite> scan of GPM-DPR which is scan 24 of 49 total.
 While this works well for the image above, alot of the times, the center of the swath is not where you want to
@@ -108,7 +357,7 @@ look. To change this, you will change the <code class="docutils literal notransl
 <p>Note that depending on if the orbit is ‘descending’ or ‘ascending’ the scan number might increase to the left, or increase to the right.</p>
 </section>
 <section id="length-adjustment-along-track-index-choice">
-<h3>Length Adjustment (Along Track Index Choice)<a class="headerlink" href="#length-adjustment-along-track-index-choice" title="Permalink to this headline"></a></h3>
+<h3>Length Adjustment (Along Track Index Choice)<a class="headerlink" href="#length-adjustment-along-track-index-choice" title="Permalink to this heading">#</a></h3>
 <p>In <code class="docutils literal notranslate"><span class="pre">drpy.graph.case_study</span></code>, you can change the location of the cross-section, which is written on the map as
 the ‘Left’ and ‘Right’ marker (L and R). Depending on your feature you are looking at you will want to change these.
 For example, lets look very close to the eye of this tropical cyclone.</p>
@@ -132,7 +381,7 @@ nans, and it screws up the distances on the x-axis of the cross-section.</p>
 </section>
 </section>
 <section id="cross-track-view">
-<h2>Cross-Track View<a class="headerlink" href="#cross-track-view" title="Permalink to this headline"></a></h2>
+<h2>Cross-Track View<a class="headerlink" href="#cross-track-view" title="Permalink to this heading">#</a></h2>
 <p>So far I have been showing you the along-track view from GPM-DPR. This is the direction the radar itself is traveling in orbit.
 There are instances when the along-track dimension doesnt show the best perspective of the precipitation, so it is good to be able
 to look at the storm in the cross-track dimension. To do this, we just change the <cite>c.plotter_along</cite> to <cite>c.plotter_cross</cite>. For this
@@ -144,13 +393,13 @@ to plot. Here is an example of the same storm we have been looking at.</p>
 <a class="reference internal image-reference" href="_images/DRpyDefault_Cross.png"><img alt="_images/DRpyDefault_Cross.png" class="align-center" src="_images/DRpyDefault_Cross.png" style="width: 600px;" /></a>
 </section>
 <section id="adjusting-the-cross-section">
-<h2>Adjusting the Cross-section<a class="headerlink" href="#adjusting-the-cross-section" title="Permalink to this headline"></a></h2>
+<h2>Adjusting the Cross-section<a class="headerlink" href="#adjusting-the-cross-section" title="Permalink to this heading">#</a></h2>
 <p>While the default parameters for the cross-sections work for a number of meteorological examples,
 sometimes you want to ajust the height of the image (y-axis limit). To adjust any parameter, we will use
 the params_new dictionary. While I show the following examples with the <cite>c.plotter_along</cite>, the same apply to the
 <cite>c.plotter_cross</cite></p>
 <section id="y-limit">
-<h3>Y limit<a class="headerlink" href="#y-limit" title="Permalink to this headline"></a></h3>
+<h3>Y limit<a class="headerlink" href="#y-limit" title="Permalink to this heading">#</a></h3>
 <p>Let’s start with making the y-axis go through 15 km instead of 10, you would do the following:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">plotter_along</span><span class="p">(</span><span class="n">start_index</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span><span class="n">end_index</span><span class="o">=-</span><span class="mi">25</span><span class="p">,</span><span class="n">scan</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span><span class="n">params_new</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;y_max&#39;</span><span class="p">:</span><span class="mi">15</span><span class="p">})</span>
 </pre></div>
@@ -158,7 +407,7 @@ the params_new dictionary. While I show the following examples with the <cite>c.
 <a class="reference internal image-reference" href="_images/DRpy_raw_UPDOWN.png"><img alt="_images/DRpy_raw_UPDOWN.png" class="align-center" src="_images/DRpy_raw_UPDOWN.png" style="width: 600px;" /></a>
 </section>
 <section id="color-limit">
-<h3>Color limit<a class="headerlink" href="#color-limit" title="Permalink to this headline"></a></h3>
+<h3>Color limit<a class="headerlink" href="#color-limit" title="Permalink to this heading">#</a></h3>
 <p>Occasionally, we can see values of reflectivity that are lower than the default color limits (e.g., snow).
 You can adjust these by sending in <code class="docutils literal notranslate"><span class="pre">'z_vmin'</span></code> for the lower color bound and <code class="docutils literal notranslate"><span class="pre">'z_vmax'</span></code> for the upper bound.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">plotter_along</span><span class="p">(</span><span class="n">start_index</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span><span class="n">end_index</span><span class="o">=-</span><span class="mi">25</span><span class="p">,</span><span class="n">scan</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span><span class="n">params_new</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;y_max&#39;</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="s1">&#39;z_vmin&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;z_vmax&#39;</span><span class="p">:</span><span class="mi">30</span><span class="p">})</span>
@@ -173,7 +422,7 @@ You can adjust these by sending in <code class="docutils literal notranslate"><s
 <p>For this example, I hope you can see that the default color limit is probably better.</p>
 </section>
 <section id="different-variables">
-<h3>Different Variables<a class="headerlink" href="#different-variables" title="Permalink to this headline"></a></h3>
+<h3>Different Variables<a class="headerlink" href="#different-variables" title="Permalink to this heading">#</a></h3>
 <p>So far we have been looking at the ‘raw’ or ‘measured’ reflectivity at Ku- and Ka- band, as well
 as the Dual-Frequency Ratio (which is the difference between Ku and Ka). But there is a ‘corrected’ product
 which attempts to correct for attenuation. To change the variables that are plotted on the cross-sections
@@ -201,9 +450,9 @@ the attenuation corrected Ka-band. This is often times why the DFR looks odd. Th
 </section>
 </section>
 <section id="an-alternate-snowfall-retrieval">
-<h2>An Alternate Snowfall Retrieval<a class="headerlink" href="#an-alternate-snowfall-retrieval" title="Permalink to this headline"></a></h2>
+<h2>An Alternate Snowfall Retrieval<a class="headerlink" href="#an-alternate-snowfall-retrieval" title="Permalink to this heading">#</a></h2>
 <section id="background">
-<h3>Background<a class="headerlink" href="#background" title="Permalink to this headline"></a></h3>
+<h3>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h3>
 <p>The GPM-DPR default retrieval (the one provided in the 2A.DPR files) for snowfall have some deficiencies
 (<a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0169809516304677?casa_token=wa6ZPhk57t0AAAAA:q9-OD_DwlV-U5KNIA23IEzexb3CzxKP1Kow1saisNrqacbzfjHkCyVQY1qjcQg5fK1PrhWam">Casella et al. 2017</a> ;
 <a class="reference external" href="https://journals.ametsoc.org/view/journals/apme/58/7/jamc-d-18-0124.1.xml">Skofronick-Jackson et al. 2019</a>). During
@@ -223,7 +472,7 @@ algorithm despite having completely different retrievals (i.e., different assump
 <p>Rather than letting this retrieval sit in academia purgatory, I have implemented a way to run it within the <code class="docutils literal notranslate"><span class="pre">DRpy</span></code>.</p>
 </section>
 <section id="running-chase-et-al-2021">
-<h3>Running Chase et al. (2021)<a class="headerlink" href="#running-chase-et-al-2021" title="Permalink to this headline"></a></h3>
+<h3>Running Chase et al. (2021)<a class="headerlink" href="#running-chase-et-al-2021" title="Permalink to this heading">#</a></h3>
 <p>The retrieval takes as inputs the Ku-band reflectivity, the dual-frequency ratio (Ku - Ka) and the temperature. All of these
 variables are available in the 2A.DPR files, and all we need to do is use the <code class="docutils literal notranslate"><span class="pre">xsections</span></code> key in the params dictionary again.
 One note though, you will need to install tensorflow (the CPU version is fine; <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">tensorflow</span></code>).</p>
@@ -250,33 +499,130 @@ low biased. Check out my friends paper that shows this potenital low bias here: 
 </section>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="getting_started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2022, Randy Chase.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
+                </article>
+              
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="getting_started.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Getting Started</p>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+    </a>
+    <a class="right-next"
+       href="example_gallery.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Example Gallery</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
 
-</body>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-the-cross-section">Moving the Cross-section</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scan-adjustment-cross-track-index-choice">Scan Adjustment (Cross-Track Index Choice)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#length-adjustment-along-track-index-choice">Length Adjustment (Along Track Index Choice)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-track-view">Cross-Track View</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adjusting-the-cross-section">Adjusting the Cross-section</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#y-limit">Y limit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-limit">Color limit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#different-variables">Different Variables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-alternate-snowfall-retrieval">An Alternate Snowfall Retrieval</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-chase-et-al-2021">Running Chase et al. (2021)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div class="tocsection sourcelink">
+    <a href="_sources/advanced_plotting.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2022, Randy Chase.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
 </html>

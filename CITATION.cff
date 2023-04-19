@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+title: DRpy
+version: 1.0.1
+date-released: 2023-04-18
+license: MIT
+repository-code: https://github.com/dopplerchase/DRpy
+description: DRpy (pronounced: dur-pee) is a Python package which aims to help users download, process and plot GPM-DPR data. This package is made and maintained by me, Randy Chase, so if you have any questions feel free to reach out on twitter (@dopplerchase). Alternatively, if you notice broken parts of the code, go ahead and open an issue on the github repo.
+keywords:
+  - tool
+  - software
+  - radar
+authors:
+  - family-names: "Chase"
+    given-names: "Randy J."
+    orcid: "https://orcid.org/0000-0002-2606-7612"
+    affiliation: "AI2ES, Oklahoma University"
+  - family-names: "Syed"
+    given-names: "Hamid Ali"
+    orcid: "https://orcid.org/0000-0002-7188-2544"
+    affiliation: "Purdue University"
+doi: 10.5281/zenodo.7259560
+url: https://github.com/dopplerchase/DRpy

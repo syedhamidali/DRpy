@@ -7,7 +7,7 @@
 Welcome to DRpy's documentation!
 ================================
 
-.. image:: images/DRpy_logo_V1.pdf
+.. image:: images/logo.png
    :align: center
    :width: 300
 
@@ -39,4 +39,5 @@ I have created ``DRpy``.
    installation.rst
    getting_started.rst
    advanced_plotting.rst
+   example_gallery.rst
 
